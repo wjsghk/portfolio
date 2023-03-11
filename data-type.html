@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Attributes</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes -->
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: tomato;
+        margin-bottom: 50px;
+      }
+
+      /* div를 지우면  span태그에 속성값인 data-display-name='dream' 이것도 적용된다. */
+      div[data-display-name='dream'] {
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-index="1" data-display-name="dream"></div>
+    <div data-index="2" data-display-name="coding"></div>
+    <span data-index="1" data-display-name="dream">sdfsdf</span>
+    <script>
+      const dream = document.querySelector('div[data-display-name="dream"]');//23번줄를 나타낸다
+      console.log(dream.dataset);//{index: '1', displayName: 'dream'}
+      console.log(dream.dataset.displayName);//dream
+      console.log(dream.dataset.index);//1
+    </script>
+  </body>
+</html>
