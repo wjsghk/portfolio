@@ -24,9 +24,9 @@
         <i class="fa-solid fa-star"></i>
         <a href="#">Lee</a>
       </div>
-      <div>  <!-- ul.navbar__menu>li.navbar__menu__item*6 -->
+      <div class="navbar__menu">  <!-- ul.navbar__menu>li.navbar__menu__item*6 -->
         <ul class="navbar__menu">
-          <li class="navbar__menu__item">Home</li>
+          <li class="navbar__menu__item active">Home</li>
           <li class="navbar__menu__item">About</li>
           <li class="navbar__menu__item">Skills</li>
           <li class="navbar__menu__item">My work</li>
@@ -34,17 +34,21 @@
           <li class="navbar__menu__item">Contact</li>
         </ul>
       </div>
+      <!-- Toggle button -->
+      <button class="navbar__toggle-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </nav>
     <!-- Home -->
     <section id="home">
-      <img src="img/lee.jpg" alt="lee's photo" class="home__avatat">
+      <img src="img/lee.jpg" alt="lee's photo" class="home__avatar">
       <h1 class="home__title">안녕하세요,<br>저는 이병일입니다.</h1>
       <h2 class="home__description">계속해서 발전하고 노력하는 프론트엔드 이병일입니다.</h2>
       <button class="home__contact">Contact Me</button>
     </section>
 
     <!-- About -->
-    <section id="about">
+    <section id="about" class="section section__container">
       <h1>About me</h1>
       <p>자기소개서,자기Pr</p>
       <div class="about__majors">
@@ -52,7 +56,7 @@
           <div class="major__icon">
             <i class="fa-brands fa-html5"></i>
           </div>
-          <div class="major__title">Html,css</div>
+          <h2 class="major__title">Html,css</h2>
           <div class="major__description">
             Html,css
           </div>
@@ -62,7 +66,7 @@
           <div class="major__icon">
             <i class="fa-brands fa-js"></i>
           </div>
-          <div class="major__title">javascript</div>
+          <h2 class="major__title">javascript</h2>
           <div class="major__description">
             Html,css
           </div>
@@ -72,7 +76,7 @@
           <div class="major__icon">
             <i class="fa-brands fa-react"></i>
           </div>
-          <div class="major__title">React</div>
+          <h2 class="major__title">React</h2>
           <div class="major__description">
             Html,css
           </div>
@@ -80,9 +84,11 @@
       </div>
       <div class="about__jobs">
         <div class="job">
-          <img src="" alt="" class="job__logo"/>
-          <p class="job__name">학원이름</p>
-          <p class="job__period">학원다닌기간</p>
+          <img src="img/favicon.png" alt="" class="job__logo"/>
+          <div class="job__description">
+            <p class="job__name">학원이름</p>
+            <p class="job__period">학원다닌기간</p>       
+          </div>
         </div>
       </div>
 
@@ -90,7 +96,8 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills">
+    <section id="skills" class="section">
+      <div class="section__container">
       <h1>Skills</h1>
       <h2>Skills & Attributes</h2>
       <p>자기소개</p>
@@ -103,7 +110,7 @@
               <span>90%</span>
             </div> 
             <div class="skill__bar">
-              <div class="skill__value"></div>
+              <div class="skill__value" style="width: 90%;"></div>
             </div>
           </div>
 
@@ -137,6 +144,7 @@
             </div>
           </div>
         </div>
+
         <div class="skillset__right">
           <div class="tools">
             <h3 class="skillset__tiltle">Tools</h3>
@@ -154,17 +162,18 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
     
     <!-- Work -->
-    <section id="work">
+    <section id="work" class="section">
       <h1>My work</h1>
       <h3>Projects</h3>
       <div class="work__categories">
-        <button class="category__btn">Front-end<span class="category__count">1</span></button>
-        <button class="category__btn">html&css<span class="category__count">1</span></button>
-        <button class="category__btn">js<span class="category__count">1</span></button>
-        <button class="category__btn">react<span class="category__count">1</span></button>
+        <button class="category__btn active">All<span class="category__count">5</span></button>
+        <button class="category__btn">html&css<span class="category__count">3</span></button>
+        <button class="category__btn">js<span class="category__count">2</span></button>
+        <button class="category__btn">react<span class="category__count">0</span></button>
       </div>
 <!-- Image resizer: https://resizeimage.net/ 이미지 사이즈 변환사이트 -->
       <div class="work__projects">
@@ -182,7 +191,7 @@
     <!-- <section id="test"></section> -->
 
     <!--Contact  -->
-    <section id="contact">
+    <section id="contact" class="section">
       <h1 class="contact__title">Let's talk</h1>
       <h2 class="contact__email">kkwe3208@naver.com</h2>
       <div class="contact__links">
