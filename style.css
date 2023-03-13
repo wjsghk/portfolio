@@ -61,7 +61,7 @@ button {
   background-color: transparent;
   cursor: pointer;
   border: none;
-  outline: none;
+  /* outline: none; */
 }
 
 /* Typography */
@@ -99,7 +99,17 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 16px;
+ /* navbar 변경애니메이션 */
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  transition: all var(--animation-duration) ease-in-out;
+  z-index: 1;
+}
+
+#navbar.navbar--dark {
   background-color: var(--color-pink);
+  padding: 8px;
 }
 
 .navbar__logo {
@@ -145,6 +155,7 @@ p {
   background: url('img/home_background_12930ad7e0.png') center/cover no-repeat;
   padding: 40px;
   text-align: center;
+  padding-top: 120px;
 }
 
 .home__avatar {
@@ -382,6 +393,7 @@ p {
   background-color: black;
   display: flex;
   flex-direction: column;
+  /* 위 flex 떄문에 h3,span이 가로정렬 되니까 글자 세로 정렬 */
   justify-content: center;
   width: 100%;
   height: 100%;
@@ -389,6 +401,7 @@ p {
   left: 0;
   opacity: 0;
   transform: translateY(10px);
+  /* y 10px 내려가있는상태 */
   transition: all var(--animation-duration) ease-in;
 }
 
@@ -491,18 +504,22 @@ p {
 
   #navbar {
     flex-direction: column;
+    /* 세로정렬 */
     align-items: flex-start;
+    /* logo부분을 왼쪽정렬 */
   }
 
   .navbar__menu {
     flex-direction: column;
     text-align: center;
     width: 100%;
-    display: none;
+    /* display: none; */
   }
 
   .about__majors {
     flex-direction: column;
+    /* 밑에 project와의 차이점은 about__majors 전체를 묶은 상태에서 flex를 한거고
+    project는 각각에 flex를 설정 해둬서  */
   }
 
   .major {
