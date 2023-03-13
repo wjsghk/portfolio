@@ -11,7 +11,7 @@ document.addEventListener('scroll', ()=>{
     if(window.scrollY > navbarHeight){
         navbar.classList.add('navbar--dark');
     }else{
-        navbar.classList.remove('navbar--dark');
+        navbar.classList.remove('navbar--dark');//css에서 확인해주기
     }
 });
 
@@ -20,6 +20,8 @@ const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click',(event)=>{
     const target = event.target;
     const link = target.dataset.link;
+    //https://codechasseur.tistory.com/75 요약하자면 데이터 값을 가져오겠다
+    //const link = event.target.dataset.link; 로도 한꺼번에 변수 설정해도된다.
     if(link == null){
         return;//navbar 빈공간을 눌렀을때 undefined방지위해 
     }
@@ -51,6 +53,9 @@ const homeHeigt = home.getBoundingClientRect().height;
 document.addEventListener('scroll',()=>{
     home.style.opacity = 1 - window.scrollY / homeHeigt;
     //home에 style의 opacity를 할당한다.
+    //ex) 1 - 0/800 => 1(보임)
+    //ex) 1 - 400/800 => 0.5
+    //ex) 1 - 800/800 => 0(투명)
     console.log(`homeHeigt: ${homeHeigt}`);//잘 나오는 지 확인용
 })
 
