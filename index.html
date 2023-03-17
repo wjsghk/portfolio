@@ -25,7 +25,7 @@
         <a href="#">Lee</a>
       </div>
 
-      <div class="navbar__menu">  <!-- ul.navbar__menu>li.navbar__menu__item*6 -->
+      <!-- ul.navbar__menu>li.navbar__menu__item*6 -->
         <ul class="navbar__menu">
           <li class="navbar__menu__item active" data-link="#home">Home</li>
           <!-- data-link를 쓴이유는 js에서 클릭시 이동하기 위한 link -->
@@ -35,12 +35,14 @@
           <!-- <li class="navbar__menu__item" data-link="#testimonial">Testimonial</li> -->
           <li class="navbar__menu__item" data-link="#contact">Contact</li>
         </ul>
-      </div>
+      
       <!-- Toggle button -->
       <button class="navbar__toggle-btn">
         <i class="fa-solid fa-bars"></i>
       </button>
     </nav>
+
+
     <!-- Home -->
     <section id="home">
       <div class="home__container">
@@ -173,14 +175,14 @@
       <h1>My work</h1>
       <h3>Projects</h3>
       <div class="work__categories">
-        <button class="category__btn active">All<span class="category__count">5</span></button>
-        <button class="category__btn">html&css<span class="category__count">3</span></button>
-        <button class="category__btn">js<span class="category__count">2</span></button>
-        <button class="category__btn">react<span class="category__count">0</span></button>
+        <button class="category__btn selected" data-filter="*">All<span class="category__count">5</span></button>
+        <button class="category__btn" data-filter="html&css">html&css<span class="category__count">3</span></button>
+        <button class="category__btn" data-filter="js">js<span class="category__count">2</span></button>
+        <button class="category__btn" data-filter="react">react<span class="category__count">0</span></button>
       </div>
 <!-- Image resizer: https://resizeimage.net/ 이미지 사이즈 변환사이트 -->
       <div class="work__projects">
-        <a href="깃허브 주소" class="project" target="blank">
+        <a href="깃허브 주소" class="project" target="blank" data-type="html&css">
           <img src="img/favicon.png" alt="project_name" class="project__img">
           <div class="project__description">
             <h3>Youtube Site</h3>
@@ -188,7 +190,7 @@
           </div>
         </a>
       
-        <a href="깃허브 주소" class="project" target="blank">
+        <a href="깃허브 주소" class="project" target="blank" data-type="html&css">
           <img src="img/favicon.png" alt="project_name" class="project__img">
           <div class="project__description">
             <h3>Youtube Site</h3>
@@ -196,7 +198,7 @@
           </div>
         </a>
 
-        <a href="깃허브 주소" class="project" target="blank">
+        <a href="깃허브 주소" class="project" target="blank" data-type="html&css">
           <img src="img/favicon.png" alt="project_name" class="project__img">
           <div class="project__description">
             <h3>Youtube Site</h3>
@@ -204,7 +206,7 @@
           </div>
         </a>
 
-        <a href="깃허브 주소" class="project" target="blank">
+        <a href="깃허브 주소" class="project" target="blank" data-type="js">
           <img src="img/favicon.png" alt="project_name" class="project__img">
           <div class="project__description">
             <h3>Youtube Site</h3>
@@ -212,7 +214,7 @@
           </div>
         </a>
         
-        <a href="깃허브 주소" class="project" target="blank">
+        <a href="깃허브 주소" class="project" target="blank" data-type="js">
           <img src="img/favicon.png" alt="project_name" class="project__img">
           <div class="project__description">
             <h3>Youtube Site</h3>
@@ -241,5 +243,10 @@
         </a>
       </div>
     </section>
+
+    <!-- Arrow up -->
+    <a href="#"><button class="arrow-up">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button></a>
   </body>
 </html>

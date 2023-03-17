@@ -128,15 +128,16 @@ p {
   color: var(--color-white);
   cursor: pointer;
   border-radius: var(--size-border-radius);
-
+  border: 1px solid transparent;
+  /* 위 코드르 안하면 크기가 변경됨 */
 }
 
-.navbar__menu__item.active {
+/* .navbar__menu__item.active {
   border: 1px solid white;
-  /* border-radius: var(--size-border-radius); */
-}
+} */
 
 .navbar__menu__item:hover {
+  border: 1px solid white;
   background-color: var(--color-dark-pink);
   /* border-radius: var(--size-border-radius); */
 }
@@ -336,13 +337,13 @@ p {
   padding: 8px 48px;
 }
 
-.category__btn.active,
+.category__btn.selected,
 .category__btn:hover {
   background-color: var(--color-pink);
   color: var(--color-white);
 }
 
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   top: 0;
@@ -369,6 +370,13 @@ p {
   flex-wrap: wrap;
   /* 자리가 차면 밑에 칸으로 이동 */
   justify-content: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.anim-out{
+  opacity: 0;
+  transform: scale(0.97) translateY(40px);
 }
 
 .project {
@@ -380,6 +388,10 @@ p {
   height: 250px;
   margin: 2px;
   background-color: var(--color-light-white);
+}
+
+.project.invisible{
+  display: none;
 }
 
 .project__img {
@@ -411,7 +423,7 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
@@ -420,9 +432,11 @@ p {
   display: block;
   position: relative;
   left: 50%;
-  width: 25px;
+  width: 50px;
+  /* ---선길이를 나타낸다.  */
+
   height: 2px;
-  margin-left: -12px;
+  transform: translateX(-50%);
   margin-top: 8px;
   background-color: var(--color-dark-white);
 }
@@ -489,6 +503,30 @@ p {
   margin: 24px 0;
   transition: all var(--animation-duration) ease-in;
 }
+
+/* arrow-up scroll 할때 발생 */
+.arrow-up{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 50px;
+  background-color: var(--color-pink);
+  color: var(--color-light-white);
+  border-radius: 30%;
+  padding: 10px;
+  /* display: none;  애니메이션 효과를 이용할때는 적용이 잘 안돼서 opacity를 이용한다.*/ 
+  opacity: 0;
+  pointer-events: none;
+  /* none를 설정해주면서 애로우 업 버튼이 안보일때에 포인터르 안보인게 해줌 */
+  transition: all var(--animation-duration) ease-in;
+}
+
+.arrow-up.visible{
+  /* display: block; */
+  opacity: 1;
+  pointer-events: auto;
+
+}
 /* i위치 설정 파악하기 */
 .contact__links i:hover {
   transform: scale(1.2);
@@ -507,15 +545,23 @@ p {
     /* 세로정렬 */
     align-items: flex-start;
     /* logo부분을 왼쪽정렬 */
+    background-color: var(--color-pink);
+  }
+
+  #navbar.navbar--dark{
+    padding: 16px;
   }
 
   .navbar__menu {
     flex-direction: column;
     text-align: center;
     width: 100%;
-    /* display: none; */
+    display: none;
   }
 
+  .navbar__menu.open{
+    display: block;
+  }
   .about__majors {
     flex-direction: column;
     /* 밑에 project와의 차이점은 about__majors 전체를 묶은 상태에서 flex를 한거고

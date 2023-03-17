@@ -25,12 +25,20 @@ navbarMenu.addEventListener('click',(event)=>{
     if(link == null){
         return;//navbar 빈공간을 눌렀을때 undefined방지위해 
     }
-
+    navbarMenu.classList.remove('open');//클릭시 네이바에 삭제
     console.log(event.target.dataset.link);//cilck시 확인용
      scrollIntoView(link);
     // const scrollTo = document.querySelector(link);
     // scrollTo.scrollIntoView({ behavior:'smooth'});
 });
+
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
+});
+
 
 //contact버튼 클릭시 이동
 const homeContactBtn = document.querySelector('.home__contact');
@@ -57,19 +65,72 @@ document.addEventListener('scroll',()=>{
     //ex) 1 - 400/800 => 0.5
     //ex) 1 - 800/800 => 0(투명)
     console.log(`homeHeigt: ${homeHeigt}`);//잘 나오는 지 확인용
-})
-
-
-
-
-
-
-
-
-
-
-// Navbar toggle button for small screen
-const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
-navbarToggleBtn.addEventListener('click', () => {
-  navbarMenu.classList.toggle('open');
 });
+
+//scorll시 arrow-up보이게하기
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll',()=>{
+    if(window.scrollY > homeHeigt /2){
+        arrowUp.classList.add('visible');
+    }else{
+        arrowUp.classList.remove('visible');
+    }
+});
+
+//애로우 버튼클릭시 home으로 이동  a태그(급격하게 올라감)로 해서 하는 방법도 있고 다른방법(스무스하게 올라감) 
+arrowUp.addEventListener('click',()=>{
+    scrollIntoView('#home');
+});
+
+//project클릭시 카테고리 변환,애니메이션 효과
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+workBtnContainer.addEventListener('click',(e)=>{
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+     //e에 target애 dataset에 filter를 가져오겠다(옆에 나타나는 숫자가 undefined가 나오기 때문에). or  e.target.parentNode.dataset.filter를 가져오겠다
+    if(filter == null){
+        return;
+    }
+    console.log(filter);
+
+   
+    //project클릭시 카테고리 애니메이션 효과
+    const active = document.querySelector('.category__btn.selected');
+    active.classList.remove('selected');
+    const target = e.target.nodeName === 'BUTTON' ?  e.target : e.target.parentNode;
+    target.classList.add('selected');
+
+    projectContainer.classList.add('anim-out');
+    setTimeout(()=>{
+        projects.forEach((project) => {
+            console.log(project.dataset.type);
+            if(filter === '*' || filter === project.dataset.type){
+                project.classList.remove('invisible');
+            }else{
+                project.classList.add('invisible');
+            }
+        //for each 와 같은버전 1
+        // for(let project of projects){
+        //     console.log(project);
+        // }
+
+        //for each 와 같은버전 2
+        // let project;
+        // for(let i=0; i<projects.length; i++){
+        //     project = project[i];
+        //     console.log(project);
+        // }
+        });
+        projectContainer.classList.remove('anim-out');
+    },300);
+});
+
+
+
+
+
+
+
+
+
