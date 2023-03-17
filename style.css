@@ -128,13 +128,12 @@ p {
   color: var(--color-white);
   cursor: pointer;
   border-radius: var(--size-border-radius);
-  border: 1px solid transparent;
   /* 위 코드르 안하면 크기가 변경됨 */
 }
 
-/* .navbar__menu__item.active {
+.navbar__menu__item.active {
   border: 1px solid white;
-} */
+}
 
 .navbar__menu__item:hover {
   border: 1px solid white;
@@ -182,10 +181,14 @@ p {
   /* 버튼속성 중복된게 있어서 맨위 쪽에 공통되게 css를 설정함 */
 }
 
+.home__contact:hover{
+  background-color: var(--color-orange);
+}
+
 
 /* Section common */
 .section {
-  padding: 50px;
+  padding: 16px;
   text-align: center;
   margin: auto;
 }
@@ -335,6 +338,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category__btn.selected,
@@ -358,9 +362,9 @@ p {
   line-height: 24px;
  display: inline-block;
  /* span은 인라인 요소라 원형이 찌그러진다. */
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -509,11 +513,13 @@ p {
   position: fixed;
   bottom: 50px;
   right: 50px;
-  font-size: 50px;
+  font-size: 25px;
   background-color: var(--color-pink);
   color: var(--color-light-white);
   border-radius: 30%;
-  padding: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   /* display: none;  애니메이션 효과를 이용할때는 적용이 잘 안돼서 opacity를 이용한다.*/ 
   opacity: 0;
   pointer-events: none;
@@ -536,8 +542,19 @@ p {
 /* 반응형 나타내기 */
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root{
+      /* Font size */
+  --font-large: 30px;
+  --font-medium: 18px;
+  --font-regular: 16px;
+  --font-small: 14px;
+  --font-micro: 12px;
+  }
   .navbar__toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: medium;
   }
 
   #navbar {
@@ -562,20 +579,32 @@ p {
   .navbar__menu.open{
     display: block;
   }
+
+  .section{
+    padding: 16px;
+    padding-top: 40px;
+  }
+  
   .about__majors {
     flex-direction: column;
+    margin-top:30px;
+    margin-bottom: 0px;
     /* 밑에 project와의 차이점은 about__majors 전체를 묶은 상태에서 flex를 한거고
     project는 각각에 flex를 설정 해둬서  */
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn{
+    width: 100%;
+    margin: 4px 0;
+  }
   .project {
     flex-grow: 1;
   }
@@ -583,5 +612,18 @@ p {
   .testimonial__avatar {
     width: 80px;
     height: 80px;
+  }
+
+  .arrow-up{
+  bottom: 16px;
+  right: 50px;
+  font-size: 15px;
+  background-color: var(--color-pink);
+  color: var(--color-light-white);
+  border-radius: 30%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  right: 16px;
   }
 }
